@@ -41,3 +41,8 @@ if __name__ == "__main__":
     else:
         ruta = sys.argv[1]
         analizar_logs(ruta)
+
+with open("ips_sospechosas.txt", "w") as salida:
+    for ip, count in ips.items():
+        if count > umbral:
+            salida.write(f"{ip}\n")
